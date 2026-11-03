@@ -1,0 +1,36 @@
+server:
+  address: 127.0.0.1
+  port: ${JARVIS_PORT:18080}
+  error:
+    include-message: never
+    include-stacktrace: never
+spring:
+  application:
+    name: jarvis
+  codec:
+    max-in-memory-size: 10MB
+  main:
+    banner-mode: off
+jarvis:
+  auth-mode: ${JARVIS_AUTH_MODE:local}
+  db-url: ${JARVIS_DB_URL:}
+  db-user: ${JARVIS_DB_USER:}
+  db-password: ${JARVIS_DB_PASSWORD:}
+  api-token: ${JARVIS_API_TOKEN:}
+  ollama-url: ${OLLAMA_BASE_URL:http://127.0.0.1:11434}
+  chat-model: ${JARVIS_CHAT_MODEL:qwen3:1.7b}
+  embedding-model: ${JARVIS_EMBEDDING_MODEL:all-minilm:22m}
+  embedding-dimensions: ${JARVIS_EMBEDDING_DIMENSIONS:384}
+  context-length: ${JARVIS_CONTEXT_LENGTH:8192}
+  output-tokens: ${JARVIS_OUTPUT_TOKENS:4096}
+  concurrency: ${JARVIS_CONCURRENCY:1}
+  connect-timeout: 3s
+  response-timeout: ${JARVIS_RESPONSE_TIMEOUT:120s}
+  health-timeout: 3s
+  keep-alive: ${JARVIS_KEEP_ALIVE:30s}
+logging:
+  level:
+    root: INFO
+    org.springframework.ai: WARN
+    org.springframework.ai.chat.model.MessageAggregator: 'OFF'
+    org.springframework.web: WARN

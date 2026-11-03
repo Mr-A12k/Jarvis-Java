@@ -1,0 +1,12 @@
+.tools/
+.venv/
+venv/
+.env
+data/
+*.log
+backend/target/
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+.idea/
+.vscode/
